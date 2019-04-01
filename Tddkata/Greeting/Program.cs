@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Greeting
+namespace Greetings
 {
     class Program
     {
