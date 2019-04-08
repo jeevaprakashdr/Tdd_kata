@@ -4,13 +4,9 @@ namespace Greetings
 {
     public class Greeting
     {
-        public Greeting()
+        public string Greet(string name)
         {
-        }
-
-        public object Greet(string name)
-        {
-            return string.Empty;
+            return $"Hello, {name}.";
         }
     }
 }
