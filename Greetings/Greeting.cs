@@ -1,4 +1,6 @@
 using System;
+using Greetings.Extensions;
+using Greetings.NameProcessors;
 
 namespace Greetings
 {
@@ -6,7 +8,10 @@ namespace Greetings
     {
         public string Greet(string name)
         {
-            return $"Hello, {name}.";
+            if(string.IsNullOrEmpty(name))
+                return $"Hello, my friend.";
+            
+            return  name.IsAllInUpperCase() ? $"Hello, {name}.".ToUpper() : $"Hello, {name}.";
         }
     }
 }
