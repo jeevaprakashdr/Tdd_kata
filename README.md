@@ -4,7 +4,11 @@ Practicing TDD kata as defined in page https://medium.com/@marlenac/learning-tdd
 
 # VSCode Extensions Used
 .Net Core Test Explorer
+
 C#
+
 C# Extensions
+
 Code Runner
+
 VSCode Solution Explorer
