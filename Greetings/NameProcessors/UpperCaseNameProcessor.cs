@@ -1,14 +1,22 @@
+using System;
 using Greetings.Extensions;
 namespace Greetings.NameProcessors
 {
     public class UpperCaseNameProcessor : INameProcessor
     {
-        public string Process(string value)
+        private readonly INameProcessor _next;
+
+        public UpperCaseNameProcessor(INameProcessor next)
+        {
+            _next = next;
+        }
+
+        public string Process(string value, Func<string> action)
         {
             if (value.IsAllInUpperCase())
-                return value.ToUpper();
+                return $"{action()}{value}.".ToUpper();
 
-            return value;
+            return _next.Process(value, action);
         }
     }
 }

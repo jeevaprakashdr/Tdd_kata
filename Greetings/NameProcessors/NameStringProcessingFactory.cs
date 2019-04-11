@@ -1,15 +1,19 @@
 using System.Collections.Generic;
 namespace Greetings.NameProcessors
 {
-    public class NameStringProcessingFactory
+    public class NameStringProcessingFactory : INameStringProcessorFactory
     {
-        public IReadOnlyCollection<INameProcessor> GetNameProcessors()
+        public INameProcessor GetNameProcessors()
         {
-            return new List<INameProcessor>{
-                new NullNameProcessor(),
-                new UpperCaseNameProcessor(),
-                new DefaultNameProcessor()
-            };
+            return new NullNameProcessor(
+                new UpperCaseNameProcessor(
+                    new DefaultNameProcessor()
+                ));
         }
+    }
+
+    public interface INameStringProcessorFactory
+    {
+        INameProcessor GetNameProcessors();
     }
 }
