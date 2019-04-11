@@ -1,13 +1,22 @@
+using System;
+
 namespace Greetings.NameProcessors
 {
     public class NullNameProcessor : INameProcessor
     {
-        public string Process(string value)
+        private readonly INameProcessor _next;
+
+        public NullNameProcessor(INameProcessor next)
+        {
+            _next = next;
+        }
+
+        public string Process(string value, Func<string> action)
         {
             if (string.IsNullOrEmpty(value))
-                return "my friend.";
+                return $"{action()}my friend.";
 
-            return value;
+            return _next.Process(value, action);
         }
     }
 }
