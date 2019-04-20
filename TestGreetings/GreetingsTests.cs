@@ -30,7 +30,7 @@ namespace TestGreetings
             var nameWithGreeting = greeting.Greet(name);
 
             //Then
-            nameWithGreeting.Should().Be($"Hello, my friend.");
+            nameWithGreeting.Should().Be($"Hello,my friend.");
         }
 
         [Fact]
