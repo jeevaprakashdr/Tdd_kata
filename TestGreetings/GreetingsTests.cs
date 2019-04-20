@@ -16,7 +16,7 @@ namespace TestGreetings
             var nameWithGreeting = greeting.Greet(name);
 
             //Then
-            nameWithGreeting.Should().Be($"Hello, {name}.");
+            nameWithGreeting.Should().Be($"Hello,{name}.");
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace TestGreetings
             var nameWithGreeting = greeting.Greet(name);
 
             //Then
-            nameWithGreeting.Should().Be($"Hello, my friend.");
+            nameWithGreeting.Should().Be($"Hello,my friend.");
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace TestGreetings
             var nameWithGreeting = greeting.Greet(name);
 
             //Then
-            nameWithGreeting.Should().Be($"Hello, {name}.".ToUpper());
+            nameWithGreeting.Should().Be($"Hello,{name}.".ToUpper());
         }
     }
 }
