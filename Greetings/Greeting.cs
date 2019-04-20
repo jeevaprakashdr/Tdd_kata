@@ -13,7 +13,7 @@ namespace Greetings
         public string Greet(string name)
         {
             var processor = _factory.GetNameProcessors();
-            return  processor.Process(name, () =>{ return "Hello, ";});
+            return  processor.Process(name, () =>{ return "Hello,";});
         }
     }
 }

@@ -16,7 +16,7 @@ namespace TestGreetings
             var nameWithGreeting = greeting.Greet(name);
 
             //Then
-            nameWithGreeting.Should().Be($"Hello, {name}.");
+            nameWithGreeting.Should().Be($"Hello,{name}.");
         }
 
         [Fact]

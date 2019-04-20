@@ -14,7 +14,7 @@ namespace Greetings.NameProcessors
         public string Process(string value, Func<string> action)
         {
             if (string.IsNullOrEmpty(value))
-                return $"{action()}my friend.";
+                return $"{action()} my friend.";
 
             return _next.Process(value, action);
         }
