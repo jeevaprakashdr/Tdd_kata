@@ -7,27 +7,27 @@ using Moq;
 
 namespace TestGreetings.NameProcessors
 {
-    public class NullNameProcessorTests
+    public class UpperCaseNameProcessorTests
     {
         [Fact]
-        public void GivenANameNull_WhenProcessed_ShouldReturnMyfriendValue()
+        public void GivenANameIsUpperCase_WhenProcessed_ShouldReturnValueInUpperCase()
         {
-            using(var mock = AutoMock.GetLoose())
+            using (var mock = AutoMock.GetLoose())
             {
                 //Given
-                string name = null;
-                var expectedValue = "Hello, my friend.";
+                string name = "JEEVA";
+                var expectedValue = "HELLO, JEEVA.";
 
-                mock.Mock<INameProcessor>().Setup(x => x.Process(It.Is<string>(y =>y.Equals(name)), It.IsAny<Func<string>>()));
+                mock.Mock<INameProcessor>().Setup(x => x.Process(It.Is<string>(y => y.Equals(name)), It.IsAny<Func<string>>()));
 
-                var nullNameProcessor = mock.Create<NullNameProcessor>();
+                var upperCaseNameProcessor = mock.Create<UpperCaseNameProcessor>();
 
                 //When
-                var value = nullNameProcessor.Process(name, localFunc);
+                var value = upperCaseNameProcessor.Process(name, localFunc);
 
                 //Then
                 value.Should().Be(expectedValue);
-                mock.Mock<INameProcessor>().Verify(x =>x.Process(It.Is<string>(y => y.Equals(name)), It.IsAny<Func<string>>()), Times.Never);
+                mock.Mock<INameProcessor>().Verify(x => x.Process(It.Is<string>(y => y.Equals(name)), It.IsAny<Func<string>>()), Times.Never);
             }
         }
 
@@ -38,14 +38,13 @@ namespace TestGreetings.NameProcessors
             {
                 //Given
                 string name = "test";
-                var expectedValue = "Hello, my friend.";
-
+               
                 mock.Mock<INameProcessor>().Setup(x => x.Process(It.Is<string>(y => y.Equals(name)), It.IsAny<Func<string>>()));
 
-                var nullNameProcessor = mock.Create<NullNameProcessor>();
+                var upperCaseNameProcessor = mock.Create<UpperCaseNameProcessor>();
 
                 //When
-                nullNameProcessor.Process(name, localFunc);
+                upperCaseNameProcessor.Process(name, localFunc);
 
                 //Then
                 mock.Mock<INameProcessor>().Verify(x => x.Process(It.Is<string>(y => y.Equals(name)), It.IsAny<Func<string>>()), Times.Once);

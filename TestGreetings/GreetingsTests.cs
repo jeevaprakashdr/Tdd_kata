@@ -44,7 +44,7 @@ namespace TestGreetings
             var nameWithGreeting = greeting.Greet(name);
 
             //Then
-            nameWithGreeting.Should().Be($"Hello, {name}.".ToUpper());
+            nameWithGreeting.Should().Be($"Hello,{name}.".ToUpper());
         }
     }
 }

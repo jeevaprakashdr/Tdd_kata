@@ -14,7 +14,7 @@ namespace Greetings.NameProcessors
         public string Process(string value, Func<string> action)
         {
             if (value.IsAllInUpperCase())
-                return $"{action()} {value}.".ToUpper();
+                return $"{action()}{value}.".ToUpper();
 
             return _next.Process(value, action);
         }
