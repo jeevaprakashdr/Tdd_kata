@@ -5,5 +5,6 @@ namespace GildedRose
         public string Name { get; set; }
         public int SellIn { get; set; }
         public int Quality { get; set; }
+        public int something {get;}
     }
 }
